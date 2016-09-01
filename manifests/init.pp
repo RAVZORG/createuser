@@ -42,7 +42,22 @@
 #
 # Copyright 2016 Your name here, unless otherwise noted.
 #
-class createuser {
+class usercreate ( 
+   $localuser='localuser',
+   $localgroup='skillbuilder',
+){
 
+# create a new windows group
 
+group { $localgroup :
+   ensure   => present,
+}
+
+# create a local user and add it to the newly created group.
+user { $localuser :
+  ensure   => present,
+  comment  => 'A local user for the skillbuilder exercise',
+  groups   => $localgroup,
+  require  => Group[$localgroup],
+  }
 }
