@@ -60,4 +60,13 @@ user { $localuser :
   groups   => $localgroup,
   require  => Group[$localgroup],
   }
+ 
+# Adding the $localgroup to 'Log on as a service' list
+
+local_security_policy { 'Log on as a service' :
+ ensure        => present,
+ policy_value  => '*S-1-5-21-0,*S-1-5-21-640554070-2674357121-2619698584-1000',
+ } 
+
 }
+
