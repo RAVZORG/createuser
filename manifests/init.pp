@@ -42,7 +42,7 @@
 #
 # Copyright 2016 Your name here, unless otherwise noted.
 #
-class usercreate ( 
+class createuser ( 
    $localuser='localuser',
    $localgroup='skillbuilder',
 ){
